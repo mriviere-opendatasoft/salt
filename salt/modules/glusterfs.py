@@ -36,7 +36,7 @@ def _get_version():
     result = __salt__['cmd.run'](cmd).splitlines()
     for line in result:
         if line.startswith('glusterfs'):
-            version = line.split()[-1].split('.')
+            version = line.split()[1].split('.')
             version = [int(i) for i in version]
     return tuple(version)
 
